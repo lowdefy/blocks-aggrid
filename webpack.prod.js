@@ -24,7 +24,7 @@ const addRemoteEntryUrl = (content, absoluteFrom) => {
       version: packageJson.version,
       // unpkg can result in a unreliable module federation experience.
       // Deploy you block to your preferred static file host and update the remoteEntryUrl.
-      remoteEntryUrl: `https://unpkg.com/${packageJson.name}@${packageJson.version}/dist/remoteEntry.js`,
+      remoteEntryUrl: `https://blocks-cdn.lowdefy.com/v${packageJson.version}/blocks-aggrid/remoteEntry.js`,
     };
   }
   return JSON.stringify(meta);

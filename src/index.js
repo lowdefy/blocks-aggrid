@@ -1,5 +1,5 @@
 /*
-  Copyright 2020 Lowdefy, Inc
+  Copyright 2021 Lowdefy, Inc
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
   limitations under the License.
 */
 
-import ContainerBlock from './blocks/ContainerBlock/ContainerBlock';
-import ContextBlock from './blocks/ContextBlock/ContextBlock';
-import DisplayBlock from './blocks/DisplayBlock/DisplayBlock';
-import InputBlock from './blocks/InputBlock/InputBlock';
-import ListBlock from './blocks/ListBlock/ListBlock';
+import AgGridAlpine from './blocks/AgGridAlpine/AgGridAlpine';
+import AgGridAlpineDark from './blocks/AgGridAlpineDark/AgGridAlpineDark';
+import AgGridBalham from './blocks/AgGridBalham/AgGridBalham';
+import AgGridBalhamDark from './blocks/AgGridBalhamDark/AgGridBalhamDark';
+import AgGridMaterial from './blocks/AgGridMaterial/AgGridMaterial';
 
-export { ContainerBlock, ContextBlock, DisplayBlock, InputBlock, ListBlock };
-export default { ContainerBlock, ContextBlock, DisplayBlock, InputBlock, ListBlock };
+export { AgGridAlpine, AgGridAlpineDark, AgGridBalham, AgGridBalhamDark, AgGridMaterial };
+export default { AgGridAlpine, AgGridAlpineDark, AgGridBalham, AgGridBalhamDark, AgGridMaterial };

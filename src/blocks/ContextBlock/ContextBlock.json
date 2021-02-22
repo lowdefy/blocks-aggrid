@@ -1,0 +1,34 @@
+{
+  "category": "container",
+  "loading": false,
+  "schema": {
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "ContextBlock content string, alternatively provide and list of blocks as ContextBlock content."
+        },
+        "style": {
+          "type": "object",
+          "description": "Style to apply to ContextBlock div."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title to render in ContextBlock."
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "onClick": {
+          "type": "array",
+          "description": "Trigger onClick actions when container is clicked."
+        }
+      }
+    }
+  }
+}

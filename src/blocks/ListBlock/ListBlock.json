@@ -1,0 +1,17 @@
+{
+  "category": "list",
+  "valueType": "array",
+  "loading": false,
+  "schema": {
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "itemTitle": {
+          "type": "string",
+          "description": "Custom item title."
+        }
+      }
+    }
+  }
+}

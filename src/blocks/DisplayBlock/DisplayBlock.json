@@ -1,0 +1,30 @@
+{
+  "category": "display",
+  "loading": false,
+  "schema": {
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title to render in DisplayBlock."
+        },
+        "style": {
+          "type": "object",
+          "description": "Style to apply to Box div."
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "onClick": {
+          "type": "array",
+          "description": "Trigger onClick actions when block is clicked."
+        }
+      }
+    }
+  }
+}

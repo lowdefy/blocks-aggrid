@@ -15,25 +15,25 @@ Block types for supported [Ag-Grid themes](https://www.ag-grid.com/documentation
 
 The block types are hosted at:
 
-- `AgGrigAlpine`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigAlpine.json
-- `AgGrigAlpineDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigAlpineDark.json
-- `AgGrigBalham`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigBalham.json
-- `AgGrigBalhamDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigBalhamDark.json
-- `AgGrigMaterial`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigMaterial.json
+- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpineDark.json
+- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalham.json
+- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalhamDark.json
+- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridMaterial.json
 
 ### Events
 
 - `onRowClick`: Trigger event when a row is clicked and pass `row: object` and `selected: object[]` row data to action `_event`.
 - `onCellClick`:Trigger event when a cell is clicked and pass `row: object`, `cell: object` and `selected: object[]` row data to action `_event`.
 
-### AgGrigAlpine Example
+### AgGridAlpine Example
 
 ```yaml
 name: my-app
 lowdefy: 3.10.1
 types:
-  AgGrigAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigAlpine.json
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -66,14 +66,14 @@ pages:
               type: numericColumn
 ```
 
-### AgGrigAlpine valueFormatter: \_function Example
+### AgGridAlpine valueFormatter: \_function Example
 
 ```yaml
 name: my-app
 lowdefy: 3.10.1
 types:
-  AgGrigAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigAlpine.json
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -115,14 +115,14 @@ pages:
                         currency: 'EUR'
 ```
 
-### AgGrigAlpine onRowClick Example
+### AgGridAlpine onRowClick Example
 
 ```yaml
 name: my-app
 lowdefy: 3.10.1
 types:
-  AgGrigAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGrigAlpine.json
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu

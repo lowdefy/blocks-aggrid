@@ -1,35 +1,187 @@
-# Lowdefy Blocks Template
+# Lowdefy Blocks for Ag-Grid
 
-This is a template repository as a basic starting point for developing custom blocks for Lowdefy. For a detailed description of how to build custom blocks, visit the [Custom Blocks](https://docs.lowdefy.com/custom-blocks) sections in the docs.
+This repository provides blocks for [Ag-Grid](https://www.ag-grid.com/), a feature rich javascript grid amd table library.
 
-This repository contains basic example of blocks for the five different block categories; `display`, `input`, `container`, `context` and `list`. You can read more about how blocks are used in Lowdefy in the [Blocks](https://docs.lowdefy.com/blocks) section of the docs.
+The implementation of these blocks is a minimal wrapper for the [@ag-grid-community/core
+](https://www.npmjs.com/package/@ag-grid-community/core) package. This means you write normal Ag-Grid config to create tables.
 
-A Lowdefy block has two files, the block meta data and the block React component.
+See the [Ag-Grid docs](https://www.ag-grid.com/documentation/react/getting-started/) for the table settings API.
 
-## Running the blocks
+## Blocks
 
-1. You must have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/getting-started/install) installed.
-2. Generate a repository from the template on Github or clone this repository.
-3. Run `yarn install`, then `yarn start`, then check the you block is served by viewing the meta data at: http://localhost:3002/meta/DisplayBlock.json.
-4. Add the `types` to you the lowdefy.yaml. For example:
+Block types for supported [Ag-Grid themes](https://www.ag-grid.com/documentation/javascript/themes-provided/) are available.
+
+### Block type Urls
+
+The block types are hosted at:
+
+- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpineDark.json
+- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalham.json
+- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalhamDark.json
+- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridMaterial.json
+
+### Events
+
+- `onRowClick`: Trigger event when a row is clicked and pass `row: object` and `selected: object[]` row data to action `_event`.
+- `onCellClick`:Trigger event when a cell is clicked and pass `row: object`, `cell: object` and `selected: object[]` row data to action `_event`.
+
+### AgGridAlpine Example
 
 ```yaml
 name: my-app
-lowdefy: 3.10.0
+lowdefy: 3.10.1
 types:
-  DisplayBlock:
-    url: http://localhost:3002/meta/DisplayBlock.json
-# ...
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          theme: basic
+          rowData:
+            - title: One
+              year: 2010
+              viewerReviews: 30
+            - title: Two
+              year: 2011
+              viewerReviews: 20
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Viewer Reviews
+              field: viewerReviews
+              width: 160
+              type: numericColumn
 ```
 
-5. Use your new block type in your Lowdefy app.
-6. Start your Lowdefy app and test if it works, run: `npx lowdefy@latest dev`
-7. Continue to develop your block React component. Change to your block will need auto reload the app in the browser, you need to hit refresh.
-8. Before deploying your blocks to a static file server, remember to change the `remoteEntryUrl` field in the `webpack.prod.js` file to yout block URL.
-9. Deploy your blocks and enjoy your ☕️.
+### AgGridAlpine valueFormatter: \_function Example
+
+```yaml
+name: my-app
+lowdefy: 3.10.1
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          theme: basic
+          rowData:
+            - title: One
+              year: 2010
+              total: 300.21
+            - title: Two
+              year: 2011
+              total: 1230.9495
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Total
+              field: total
+              width: 160
+              type: numericColumn
+              valueFormatter:
+                _function:
+                  __format.intlNumberFormat:
+                    on:
+                      __args: 0.value
+                    params:
+                      options:
+                        style: 'currency'
+                        currency: 'EUR'
+```
+
+### AgGridAlpine onRowClick Example
+
+```yaml
+name: my-app
+lowdefy: 3.10.1
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          theme: basic
+          rowData:
+            - title: One
+              year: 2010
+              viewerReviews: 30
+            - title: Two
+              year: 2011
+              viewerReviews: 20
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Viewer Reviews
+              field: viewerReviews
+              width: 160
+              type: numericColumn
+        events:
+          onRowClick:
+            - id: set_selected
+              type: SetState
+              params:
+                selected_row: # Update 'selected' in state with the event data.
+                  _event: row
+      - id: selection
+        type: Title
+        properties:
+          level: 4
+          content:
+            _if: # Show the event data in a title, or call to action.
+              test:
+                _eq:
+                  - _state: selected_row
+                  - null
+              then: 'Click to select a row.'
+              else:
+                _string.concat:
+                  - 'Title: '
+                  - _state: selected_row.title
+                  - ', Year: '
+                  - _state: selected_row.year
+```
 
 ## Other Lowdefy Blocks Packages
 
+- [@lowdefy/blocks-template](https://github.com/lowdefy/blocks-template): Lowdefy template for creating blocks.
 - [@lowdefy/blocks-basic](https://github.com/lowdefy/lowdefy/tree/main/packages/blocks/blocksBasic): Official Lowdefy blocks some basic Html elements.
 - [@lowdefy/blocks-antd](https://github.com/lowdefy/lowdefy/tree/main/packages/blocks/blocksAntd): Official Lowdefy blocks for [Antd design](https://ant.design/).
 - [@lowdefy/blocks-color-selectors](https://github.com/lowdefy/lowdefy/tree/main/packages/blocks/blocksColorSelectorsd): Official Lowdefy blocks for [react-color](https://casesandberg.github.io/react-color/).
@@ -38,7 +190,7 @@ types:
 
 ## More Lowdefy resources
 
-- Getting started with Lowdefy - https://docs.lowdefy.com/tutorial-setup
+- Getting started with Lowdefy - https://docs.lowdefy.com/tutorial-start
 - Lowdefy docs - https://docs.lowdefy.com
 - Lowdefy website - https://lowdefy.com
 - Community forum - https://github.com/lowdefy/lowdefy/discussions
@@ -46,4 +198,4 @@ types:
 
 ## Licence
 
-[MIT](https://github.com/lowdefy/blocks-template/blob/main/LICENSE)
+[Apache-2.0](https://github.com/lowdefy/blocks-amcharts/blob/main/LICENSE)

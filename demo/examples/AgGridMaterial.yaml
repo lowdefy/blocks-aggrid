@@ -3,7 +3,6 @@
 - id: table-basic
   type: AgGridMaterial
   properties:
-    theme: basic
     rowData:
       - title: One
         year: 2010
@@ -25,7 +24,6 @@
 - id: table-defaultColDef
   type: AgGridMaterial
   properties:
-    theme: basic
     rowData:
       - title: One
         year: 2010
@@ -48,5 +46,3 @@
         field: viewerReviews
         width: 160
         type: numericColumn
-
-

@@ -41,7 +41,6 @@ pages:
       - id: my_table
         type: AgGridAlpine
         properties:
-          theme: basic
           rowData:
             - title: One
               year: 2010
@@ -81,7 +80,6 @@ pages:
       - id: my_table
         type: AgGridAlpine
         properties:
-          theme: basic
           rowData:
             - title: One
               year: 2010
@@ -130,7 +128,6 @@ pages:
       - id: my_table
         type: AgGridAlpine
         properties:
-          theme: basic
           rowData:
             - title: One
               year: 2010

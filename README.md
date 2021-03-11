@@ -176,6 +176,215 @@ pages:
                   - _state: selected_row.year
 ```
 
+### AgGridAlpine onCellClick Example
+
+```yaml
+name: my-app
+lowdefy: 3.10.1
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          rowData:
+            - title: One
+              year: 2010
+              viewerReviews: 30
+            - title: Two
+              year: 2011
+              viewerReviews: 20
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Viewer Reviews
+              field: viewerReviews
+              width: 160
+              type: numericColumn
+        events:
+          onCellClick:
+            - id: set_selected
+              type: SetState
+              params:
+                selected_cell: # Update 'selected_cell' in state with the event cell data.
+                  _event: cell
+      - id: selection
+        type: Title
+        properties:
+          level: 4
+          content:
+            _if: # Show the event data in a title, or call to action.
+              test:
+                _eq:
+                  - _state: selected_cell.column
+                  - title
+              then:
+                _string.concat:
+                  - 'Title: '
+                  - _state: selected_cell.value
+              else: 'Select a movie title.'
+```
+
+### AgGridAlpine onRowSelected Example
+
+```yaml
+name: my-app
+lowdefy: 3.10.1
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          rowData:
+            - title: One
+              year: 2010
+              viewerReviews: 30
+            - title: Two
+              year: 2011
+              viewerReviews: 20
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          rowSelection: 'multiple'
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+              checkboxSelection: true
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Viewer Reviews
+              field: viewerReviews
+              width: 160
+              type: numericColumn
+        events:
+          onRowSelected:
+            - id: set_selected
+              type: SetState
+              params:
+                selected_row: # Update 'selected' in state with the event data.
+                  _event: row
+                all_selected:
+                  _event: selected
+      - id: selection
+        type: Title
+        properties:
+          level: 4
+          content:
+            _if: # Show the event data in a title, or call to action.
+              test:
+                _eq:
+                  - _state: selected_row
+                  - null
+              then: 'Click to select a row.'
+              else:
+                _string.concat:
+                  - 'Last Selected - Title: '
+                  - _state: selected_row.title
+                  - ', Year: '
+                  - _state: selected_row.year
+      - id: all_selected
+        type: Title
+        properties:
+          level: 4
+          content:
+            _if: # Show the event data in a title, or call to action.
+              test:
+                _eq:
+                  - _state: all_selected
+                  - null
+              then: 'Select rows.'
+              else:
+                _string.concat:
+                  - 'Total Selected: '
+                  - _array.length:
+                      _state: all_selected
+```
+
+### AgGridAlpine onSelectionChanged Example
+
+```yaml
+name: my-app
+lowdefy: 3.10.1
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: my_table
+        type: AgGridAlpine
+        properties:
+          rowData:
+            - title: One
+              year: 2010
+              viewerReviews: 30
+            - title: Two
+              year: 2011
+              viewerReviews: 20
+          defaultColDef:
+            sortable: true
+            resizable: true
+            filter: true
+          rowSelection: 'multiple'
+          columnDefs:
+            - headerName: Title
+              field: title
+              width: 350
+              checkboxSelection: true
+              headerCheckboxSelection: true
+            - headerName: Year
+              field: year
+              width: 100
+            - headerName: Viewer Reviews
+              field: viewerReviews
+              width: 160
+              type: numericColumn
+        events:
+          onSelectionChanged:
+            - id: set_selected
+              type: SetState
+              params:
+                all_selected:
+                  _event: selected
+      - id: all_selected
+        type: Title
+        properties:
+          level: 4
+          content:
+            _if: # Show the event data in a title, or call to action.
+              test:
+                _eq:
+                  - _state: all_selected
+                  - null
+              then: 'Select rows.'
+              else:
+                _string.concat:
+                  - 'Total Selected: '
+                  - _array.length:
+                      _state: all_selected
+```
+
 ## Other Lowdefy Blocks Packages
 
 - [@lowdefy/blocks-template](https://github.com/lowdefy/blocks-template): Lowdefy template for creating blocks.

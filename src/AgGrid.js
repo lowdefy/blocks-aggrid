@@ -27,6 +27,8 @@ class AgGrid extends React.Component {
     this.onGridReady = this.onGridReady.bind(this);
     this.onRowClick = this.onRowClick.bind(this);
     this.onCellClicked = this.onCellClicked.bind(this);
+    this.onRowSelected = this.onRowSelected.bind(this);
+    this.onSelectionChanged = this.onSelectionChanged.bind(this);
   }
 
   onGridReady(params) {
@@ -56,6 +58,24 @@ class AgGrid extends React.Component {
     }
   }
 
+  onRowSelected(event) {
+    if (this.props.events.onRowSelected) {
+      this.props.methods.triggerEvent({
+        name: 'onRowSelected',
+        event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+      });
+    }
+  }
+
+  onSelectionChanged() {
+    if (this.props.events.onSelectionChanged) {
+      this.props.methods.triggerEvent({
+        name: 'onSelectionChanged',
+        event: { selected: this.gridApi.getSelectedRows() },
+      });
+    }
+  }
+
   render() {
     const {
       rowSelection = 'single',
@@ -69,6 +89,8 @@ class AgGrid extends React.Component {
     return (
       <AgGridReact
         rowSelection={rowSelection}
+        onSelectionChanged={this.onSelectionChanged}
+        onRowSelected={this.onRowSelected}
         onRowClicked={this.onRowClick}
         onCellClicked={this.onCellClicked}
         onGridReady={this.onGridReady}

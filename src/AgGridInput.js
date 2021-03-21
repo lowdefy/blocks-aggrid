@@ -20,7 +20,7 @@ import { AgGridReact } from '@ag-grid-community/react';
 import { AllCommunityModules } from '@ag-grid-community/all-modules';
 import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 
-class AgGrid extends React.Component {
+class AgGridInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +29,8 @@ class AgGrid extends React.Component {
     this.onCellClicked = this.onCellClicked.bind(this);
     this.onRowSelected = this.onRowSelected.bind(this);
     this.onSelectionChanged = this.onSelectionChanged.bind(this);
+    this.onRowDragMove = this.onRowDragMove.bind(this);
+    this.onCellValueChanged = this.onCellValueChanged.bind(this);
   }
 
   onGridReady(params) {
@@ -79,6 +81,50 @@ class AgGrid extends React.Component {
     }
   }
 
+  onRowDragMove(event) {
+    if (event.overNode !== event.node) {
+      const fromData = event.node.data;
+      const toData = event.overNode.data;
+      const fromIndex = this.props.value.indexOf(fromData);
+      const toIndex = this.props.value.indexOf(toData);
+      const newRowData = this.props.value.slice();
+      const element = newRowData[fromIndex];
+      newRowData.splice(fromIndex, 1);
+      newRowData.splice(toIndex, 0, element);
+      this.props.methods.setValue(newRowData);
+      this.gridApi.setRowData(this.props.value);
+      this.gridApi.clearFocusedCell();
+    }
+    this.props.methods.triggerEvent({
+      name: 'onRowDragMove',
+      event: {
+        fromData,
+        toData,
+        fromIndex,
+        toIndex,
+        newRowData,
+      },
+    });
+  }
+
+  onCellValueChanged(params) {
+    console.log(params);
+    const newRowData = this.props.value;
+    newRowData[params.rowIndex][params.colDef.field] = params.newValue;
+    this.props.methods.setValue(newRowData);
+    this.props.methods.triggerEvent({
+      name: 'onCellValueChanged',
+      event: {
+        rowIndex: params.rowIndex,
+        rowData: params.data,
+        field: params.colDef.field,
+        newValue: params.newValue,
+        oldValue: params.oldValue,
+        newRowData,
+      },
+    });
+  }
+
   render() {
     const {
       rowSelection = 'single',
@@ -97,12 +143,15 @@ class AgGrid extends React.Component {
         onRowClicked={this.onRowClick}
         onCellClicked={this.onCellClicked}
         onGridReady={this.onGridReady}
+        onRowDragMove={this.onRowDragMove}
+        onCellValueChanged={this.onCellValueChanged}
         rowMultiSelectWithClick={rowMultiSelectWithClick}
         modules={AllCommunityModules}
         {...someProperties}
+        rowData={this.props.value}
       />
     );
   }
 }
 
-export default AgGrid;
+export default AgGridInput;

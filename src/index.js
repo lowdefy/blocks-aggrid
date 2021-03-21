@@ -18,7 +18,22 @@ import AgGridAlpine from './blocks/AgGridAlpine/AgGridAlpine';
 import AgGridAlpineDark from './blocks/AgGridAlpineDark/AgGridAlpineDark';
 import AgGridBalham from './blocks/AgGridBalham/AgGridBalham';
 import AgGridBalhamDark from './blocks/AgGridBalhamDark/AgGridBalhamDark';
+import AgGridInputAlpine from './blocks/AgGridInputAlpine/AgGridInputAlpine';
 import AgGridMaterial from './blocks/AgGridMaterial/AgGridMaterial';
 
-export { AgGridAlpine, AgGridAlpineDark, AgGridBalham, AgGridBalhamDark, AgGridMaterial };
-export default { AgGridAlpine, AgGridAlpineDark, AgGridBalham, AgGridBalhamDark, AgGridMaterial };
+export {
+  AgGridAlpine,
+  AgGridAlpineDark,
+  AgGridBalham,
+  AgGridBalhamDark,
+  AgGridInputAlpine,
+  AgGridMaterial,
+};
+export default {
+  AgGridAlpine,
+  AgGridAlpineDark,
+  AgGridBalham,
+  AgGridBalhamDark,
+  AgGridInputAlpine,
+  AgGridMaterial,
+};

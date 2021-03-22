@@ -108,7 +108,6 @@ class AgGridInput extends React.Component {
   }
 
   onCellValueChanged(params) {
-    console.log(params);
     const newRowData = this.props.value;
     newRowData[params.rowIndex][params.colDef.field] = params.newValue;
     this.props.methods.setValue(newRowData);

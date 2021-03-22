@@ -1,0 +1,48 @@
+- id: default
+  type: AgGridInputBalhamDark
+- id: table-basic
+  type: AgGridInputBalhamDark
+  properties:
+    rowData:
+      - title: One
+        year: 2010
+        viewerReviews: 30
+      - title: Two
+        year: 2011
+        viewerReviews: 20
+    columnDefs:
+      - headerName: Title
+        field: title
+        width: 350
+      - headerName: Year
+        field: year
+        width: 100
+      - headerName: Viewer Reviews
+        field: viewerReviews
+        width: 160
+        type: numericColumn
+- id: table-defaultColDef
+  type: AgGridInputBalhamDark
+  properties:
+    rowData:
+      - title: One
+        year: 2010
+        viewerReviews: 30
+      - title: Two
+        year: 2011
+        viewerReviews: 20
+    defaultColDef:
+      sortable: true
+      resizable: true
+      filter: true
+    columnDefs:
+      - headerName: Title
+        field: title
+        width: 350
+      - headerName: Year
+        field: year
+        width: 100
+      - headerName: Viewer Reviews
+        field: viewerReviews
+        width: 160
+        type: numericColumn

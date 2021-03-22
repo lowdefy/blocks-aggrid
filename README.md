@@ -9,31 +9,60 @@ See the [Ag-Grid docs](https://www.ag-grid.com/documentation/react/getting-start
 
 ## Blocks
 
-Block types for supported [Ag-Grid themes](https://www.ag-grid.com/documentation/javascript/themes-provided/) are available.
+Block types for supported [Ag-Grid themes](https://www.ag-grid.com/documentation/javascript/themes-provided/) are available for for `dispay` and `input` block categories.
 
 ### Block type Urls
 
 The block types are hosted at:
 
-- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
-- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpineDark.json
-- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalham.json
-- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridBalhamDark.json
-- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridMaterial.json
+- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpineDark.json
+- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridBalham.json
+- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridBalhamDark.json
+- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridMaterial.json
+- `AgGridInputAlpine`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
+- `AgGridInputAlpineDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpineDark.json
+- `AgGridInputBalham`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputBalham.json
+- `AgGridInputBalhamDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputBalhamDark.json
+- `AgGridInputMaterial`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputMaterial.json
 
 ### Events
 
+##### All Blocks
+
+- `onCellClick`: Trigger event when a cell is clicked and pass `row: object`, `cell: object` and `selected: object[]` row data to action `_event`.
 - `onRowClick`: Trigger event when a row is clicked and pass `row: object` and `selected: object[]` row data to action `_event`.
-- `onCellClick`:Trigger event when a cell is clicked and pass `row: object`, `cell: object` and `selected: object[]` row data to action `_event`.
+- `onRowSelected`: Trigger event when a row is selected and pass `row: object` and `selected: object[]` row data to action `_event`.
+- `onSelectionChanged`: Triggered when the selected rows is changed and pass `selected: object[]` row data to action `_event`.
+
+##### Input Blocks
+
+- `onCellValueChanged`: Triggered when a cell value is changed on the grid. The following is passed to the action `_event`:
+  - `field: string`: The field name of the changed cell.
+  - `newRowData: object[]`: The table data with the change applied.
+  - `newValue: any`: The updated cell value.
+  - `oldValue: any`: The cell value before the update was made.
+  - `rowData: object`: The row data after the cell value has been changed.
+  - `rowIndex: number`: Array index of the row for the changed cell.
+- `onRowDragMove`: Triggered when a row is dragged to another position in the grid. The following is passed to the action `_event`:
+  - `fromData: object`: Row data of the row selection which to moved.
+  - `fromIndex: number`: Array index of the row selection which to moved.
+  - `newRowData: object[]`: The table data with the change applied.
+  - `toData: object`: Row data of the row to which the selection will be moved.
+  - `toIndex: number`: Array index of the row to which the selection will be moved.
+
+### Methods
+
+- `exportDataAsCsv`: When called, table data will be downloaded in csv format.
 
 ### AgGridAlpine Example
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -69,10 +98,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -117,10 +146,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -180,10 +209,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -241,10 +270,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -324,10 +353,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.10.1
+lowdefy: 3.11.4
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.10.1/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -383,6 +412,132 @@ pages:
                   - 'Total Selected: '
                   - _array.length:
                       _state: all_selected
+```
+
+### AgGridAlpine editable cells Example
+
+```yaml
+name: my-app
+lowdefy: 3.11.4
+types:
+  AgGridAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    blocks:
+      - id: Download
+        type: Button
+        events:
+          onClick:
+            - id: download
+              type: CallMethod
+              params:
+                blockId: table
+                method: exportDataAsCsv
+      - id: table
+        type: AgGridAlpine
+        properties:
+          rowData:
+            - a: zero
+              b: 000
+              c: AA
+            - a: one
+              b: 111
+              c: BB
+            - a: two
+              b: 222
+              c: CC
+          columnDefs:
+            - field: 'a'
+            - field: 'b'
+            - field: 'c'
+```
+
+### AgGridInputAlpine onRowDragMove Example
+
+```yaml
+name: my-app
+lowdefy: 3.11.4
+types:
+  AgGridInputAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    events:
+      onInit:
+        - id: new
+          type: SetState
+          params:
+            table:
+              - a: zero
+                b: 000
+                c: AA
+              - a: one
+                b: 111
+                c: BB
+              - a: two
+                b: 222
+                c: CC
+    blocks:
+      - id: table
+        type: AgGridInputAlpine
+        properties:
+          columnDefs:
+            - field: 'a'
+              rowDrag: true
+            - field: 'b'
+            - field: 'c'
+            - field: 'd'
+          defaultColDef:
+            width: 170
+            sortable: true
+            filter: true
+```
+
+### AgGridInputAlpine editable cells Example
+
+```yaml
+name: my-app
+lowdefy: 3.11.4
+types:
+  AgGridInputAlpine:
+    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
+pages:
+  - id: dashboard
+    type: PageHeaderMenu
+    events:
+      onInit:
+        - id: new
+          type: SetState
+          params:
+            table:
+              - a: zero
+                b: 000
+                c: AA
+              - a: one
+                b: 111
+                c: BB
+              - a: two
+                b: 222
+                c: CC
+    blocks:
+      - id: table
+        type: AgGridInputAlpine
+        properties:
+          columnDefs:
+            - field: 'a'
+            - field: 'b'
+            - field: 'c'
+              cellEditor: 'agSelectCellEditor'
+              cellEditorParams:
+                values: ['AA', 'BB', 'CC', 'DD']
+          defaultColDef:
+            width: 170
+            sortable: true
+            filter: true
+            editable: true
 ```
 
 ## Other Lowdefy Blocks Packages

@@ -94,17 +94,17 @@ class AgGridInput extends React.Component {
       this.props.methods.setValue(newRowData);
       this.gridApi.setRowData(this.props.value);
       this.gridApi.clearFocusedCell();
+      this.props.methods.triggerEvent({
+        name: 'onRowDragMove',
+        event: {
+          fromData,
+          toData,
+          fromIndex,
+          toIndex,
+          newRowData,
+        },
+      });
     }
-    this.props.methods.triggerEvent({
-      name: 'onRowDragMove',
-      event: {
-        fromData,
-        toData,
-        fromIndex,
-        toIndex,
-        newRowData,
-      },
-    });
   }
 
   onCellValueChanged(params) {

@@ -1667,11 +1667,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lowdefy/block-tools@npm:^3.11.4":
-  version: 3.11.4
-  resolution: "@lowdefy/block-tools@npm:3.11.4"
+"@lowdefy/block-tools@npm:^3.12.3":
+  version: 3.12.3
+  resolution: "@lowdefy/block-tools@npm:3.12.3"
   dependencies:
-    "@lowdefy/helpers": 3.11.4
+    "@lowdefy/helpers": 3.12.3
     ajv: 6.12.6
     ajv-errors: 1.0.1
     create-emotion: 10.0.27
@@ -1679,7 +1679,7 @@ __metadata:
     react-dom: 17.0.1
     react-router-dom: 5.2.0
     react-test-renderer: 17.0.1
-  checksum: 5afccd2b203fa33b52584fa6aa7a5359f4408a211b38ca26aa76b2a76e537028175c58655aa8087b0968b58ee48d87d7e74df117c5cc198f9263ff3f55ec63e0
+  checksum: 61d03d22c0e07b2da1ae99453f2904811ed646d23fcb7eaa6892a683ea39bff9c54527358745ef70f42bb88bf644c2fd03fa2a6b3759d9eacfb9b68513ba4384
   languageName: node
   linkType: hard
 
@@ -1694,8 +1694,8 @@ __metadata:
     "@babel/core": 7.12.16
     "@babel/preset-env": 7.12.16
     "@babel/preset-react": 7.12.13
-    "@lowdefy/block-tools": ^3.11.4
-    "@lowdefy/helpers": ^3.11.4
+    "@lowdefy/block-tools": ^3.12.3
+    "@lowdefy/helpers": ^3.12.3
     babel-jest: 26.6.3
     babel-loader: 8.2.2
     buffer: 6.0.3
@@ -1728,13 +1728,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lowdefy/helpers@npm:3.11.4, @lowdefy/helpers@npm:^3.11.4":
-  version: 3.11.4
-  resolution: "@lowdefy/helpers@npm:3.11.4"
+"@lowdefy/helpers@npm:3.12.3, @lowdefy/helpers@npm:^3.12.3":
+  version: 3.12.3
+  resolution: "@lowdefy/helpers@npm:3.12.3"
   dependencies:
     lodash.merge: 4.6.2
     query-string: 6.14.0
-  checksum: 619fd80ff78789c088b960698f370ef673b8f05994d4849178279646e6ea441b3e6a9e2512b8685e5f90604aae53f286f3e54139bc159d433799ee294d85fa3e
+  checksum: d6016b0b0b6783fe2f19ffebdf081e29160ba04e5da8bc8b2bc168ddd7ec7ccf108f5022dfaf3a149a99e2c3aa4b28b247a772b0c10cfb2138d768835c8d0dec
   languageName: node
   linkType: hard
 

@@ -1,6 +1,6 @@
 # Lowdefy Blocks for Ag-Grid
 
-This repository provides blocks for [Ag-Grid](https://www.ag-grid.com/), a feature rich javascript grid amd table library.
+This repository provides blocks for [Ag-Grid](https://www.ag-grid.com/), a feature rich javascript grid and table library.
 
 The implementation of these blocks is a minimal wrapper for the [@ag-grid-community/core
 ](https://www.npmjs.com/package/@ag-grid-community/core) package. This means you write normal Ag-Grid config to create tables.
@@ -30,10 +30,22 @@ The block types are hosted at:
 
 ##### All Blocks
 
-- `onCellClick`: Trigger event when a cell is clicked and pass `row: object`, `cell: object` and `selected: object[]` row data to action `_event`.
-- `onRowClick`: Trigger event when a row is clicked and pass `row: object` and `selected: object[]` row data to action `_event`.
-- `onRowSelected`: Trigger event when a row is selected and pass `row: object` and `selected: object[]` row data to action `_event`.
-- `onSelectionChanged`: Triggered when the selected rows is changed and pass `selected: object[]` row data to action `_event`.
+- `onCellClick`: Trigger event when a cell is clicked and pass the following to `_event`:
+  - `row: object`: Row data object.
+  - `cell: object`: Cell data object.
+  - `selected: object[]`: List of selected row objects.
+  - `rowIndex: number`: List index of the clicked row.
+  - `colId: string`: Column id of the clicked cell.
+- `onRowClick`: Trigger event when a row is clicked and pass the following to `_event`:
+  - `row: object`: Row data object.
+  - `selected: object[]`: List of selected row objects.
+  - `rowIndex: number`: List index of the clicked row.
+- `onRowSelected`: Trigger event when a row is selected and pass the following to `_event`:
+  - `row: object`: Row data object.
+  - `selected: object[]`: List of selected row objects.
+  - `rowIndex: number`: List index of the clicked row.
+- `onSelectionChanged`: Triggered when the selected rows is changed and pass the following to `_event`:
+  - `selected: object[]`: List of selected row objects.
 
 ##### Input Blocks
 
@@ -44,7 +56,7 @@ The block types are hosted at:
   - `oldValue: any`: The cell value before the update was made.
   - `rowData: object`: The row data after the cell value has been changed.
   - `rowIndex: number`: Array index of the row for the changed cell.
-- `onRowDragMove`: Triggered when a row is dragged to another position in the grid. The following is passed to the action `_event`:
+- `onRowDragEnd`: Triggered when a row is dragged to another position in the grid. The following is passed to the action `_event`:
   - `fromData: object`: Row data of the row selection which to moved.
   - `fromIndex: number`: Array index of the row selection which to moved.
   - `newRowData: object[]`: The table data with the change applied.

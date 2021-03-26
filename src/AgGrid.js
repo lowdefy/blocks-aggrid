@@ -44,6 +44,7 @@ class AgGrid extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onRowClick',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        rowIndex: event.rowIndex,
       });
     }
   }
@@ -56,6 +57,8 @@ class AgGrid extends React.Component {
           row: event.data,
           cell: { column: event.colDef.field, value: event.value },
           selected: this.gridApi.getSelectedRows(),
+          rowIndex: event.rowIndex,
+          colId: event.column.colId,
         },
       });
     }
@@ -66,6 +69,7 @@ class AgGrid extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onRowSelected',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        rowIndex: event.rowIndex,
       });
     }
   }
@@ -80,24 +84,17 @@ class AgGrid extends React.Component {
   }
 
   render() {
-    const {
-      rowSelection = 'single',
-      rowMultiSelectWithClick = this.props.properties.rowSelection === 'multiple',
-      quickFilterValue,
-      ...someProperties
-    } = this.props.properties;
+    const { quickFilterValue, ...someProperties } = this.props.properties;
     if (quickFilterValue && quickFilterValue === '') {
       this.gridApi.setQuickFilter(quickFilterValue); // check if empty string matches all
     }
     return (
       <AgGridReact
-        rowSelection={rowSelection}
         onSelectionChanged={this.onSelectionChanged}
         onRowSelected={this.onRowSelected}
         onRowClicked={this.onRowClick}
         onCellClicked={this.onCellClicked}
         onGridReady={this.onGridReady}
-        rowMultiSelectWithClick={rowMultiSelectWithClick}
         modules={AllCommunityModules}
         {...someProperties}
       />

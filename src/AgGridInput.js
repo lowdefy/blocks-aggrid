@@ -29,7 +29,7 @@ class AgGridInput extends React.Component {
     this.onCellClicked = this.onCellClicked.bind(this);
     this.onRowSelected = this.onRowSelected.bind(this);
     this.onSelectionChanged = this.onSelectionChanged.bind(this);
-    this.onRowDragMove = this.onRowDragMove.bind(this);
+    this.onRowDragEnd = this.onRowDragEnd.bind(this);
     this.onCellValueChanged = this.onCellValueChanged.bind(this);
   }
 
@@ -45,7 +45,11 @@ class AgGridInput extends React.Component {
     if (this.props.events.onRowClick) {
       this.props.methods.triggerEvent({
         name: 'onRowClick',
-        event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        event: {
+          row: event.data,
+          selected: this.gridApi.getSelectedRows(),
+          rowIndex: event.rowIndex,
+        },
       });
     }
   }
@@ -58,6 +62,8 @@ class AgGridInput extends React.Component {
           row: event.data,
           cell: { column: event.colDef.field, value: event.value },
           selected: this.gridApi.getSelectedRows(),
+          rowIndex: event.rowIndex,
+          colId: event.column.colId,
         },
       });
     }
@@ -68,6 +74,7 @@ class AgGridInput extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onRowSelected',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        rowIndex: event.rowIndex,
       });
     }
   }
@@ -81,7 +88,7 @@ class AgGridInput extends React.Component {
     }
   }
 
-  onRowDragMove(event) {
+  onRowDragEnd(event) {
     if (event.overNode !== event.node) {
       const fromData = event.node.data;
       const toData = event.overNode.data;
@@ -95,7 +102,7 @@ class AgGridInput extends React.Component {
       this.gridApi.setRowData(this.props.value);
       this.gridApi.clearFocusedCell();
       this.props.methods.triggerEvent({
-        name: 'onRowDragMove',
+        name: 'onRowDragEnd',
         event: {
           fromData,
           toData,
@@ -125,26 +132,19 @@ class AgGridInput extends React.Component {
   }
 
   render() {
-    const {
-      rowSelection = 'single',
-      rowMultiSelectWithClick = this.props.properties.rowSelection === 'multiple',
-      quickFilterValue,
-      ...someProperties
-    } = this.props.properties;
+    const { quickFilterValue, ...someProperties } = this.props.properties;
     if (quickFilterValue && quickFilterValue === '') {
       this.gridApi.setQuickFilter(quickFilterValue); // check if empty string matches all
     }
     return (
       <AgGridReact
-        rowSelection={rowSelection}
         onSelectionChanged={this.onSelectionChanged}
         onRowSelected={this.onRowSelected}
         onRowClicked={this.onRowClick}
         onCellClicked={this.onCellClicked}
         onGridReady={this.onGridReady}
-        onRowDragMove={this.onRowDragMove}
+        onRowDragEnd={this.onRowDragEnd}
         onCellValueChanged={this.onCellValueChanged}
-        rowMultiSelectWithClick={rowMultiSelectWithClick}
         modules={AllCommunityModules}
         {...someProperties}
         rowData={this.props.value}

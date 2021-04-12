@@ -15,16 +15,16 @@ Block types for supported [Ag-Grid themes](https://www.ag-grid.com/documentation
 
 The block types are hosted at:
 
-- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
-- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpineDark.json
-- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridBalham.json
-- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridBalhamDark.json
-- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridMaterial.json
-- `AgGridInputAlpine`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
-- `AgGridInputAlpineDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpineDark.json
-- `AgGridInputBalham`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputBalham.json
-- `AgGridInputBalhamDark`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputBalhamDark.json
-- `AgGridInputMaterial`: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputMaterial.json
+- `AgGridAlpine`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
+- `AgGridAlpineDark`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpineDark.json
+- `AgGridBalham`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridBalham.json
+- `AgGridBalhamDark`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridBalhamDark.json
+- `AgGridMaterial`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridMaterial.json
+- `AgGridInputAlpine`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputAlpine.json
+- `AgGridInputAlpineDark`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputAlpineDark.json
+- `AgGridInputBalham`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputBalham.json
+- `AgGridInputBalhamDark`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputBalhamDark.json
+- `AgGridInputMaterial`: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputMaterial.json
 
 ### Events
 
@@ -71,10 +71,10 @@ The block types are hosted at:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -110,10 +110,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -158,10 +158,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -221,10 +221,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -282,10 +282,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -365,10 +365,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -430,10 +430,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -470,10 +470,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridInputAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu
@@ -512,10 +512,10 @@ pages:
 
 ```yaml
 name: my-app
-lowdefy: 3.11.4
+lowdefy: 3.12.3
 types:
   AgGridInputAlpine:
-    url: https://blocks-cdn.lowdefy.com/v3.11.4/blocks-aggrid/meta/AgGridInputAlpine.json
+    url: https://blocks-cdn.lowdefy.com/v3.12.3/blocks-aggrid/meta/AgGridInputAlpine.json
 pages:
   - id: dashboard
     type: PageHeaderMenu

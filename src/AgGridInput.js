@@ -31,6 +31,7 @@ class AgGridInput extends React.Component {
     this.onSelectionChanged = this.onSelectionChanged.bind(this);
     this.onRowDragEnd = this.onRowDragEnd.bind(this);
     this.onCellValueChanged = this.onCellValueChanged.bind(this);
+    this.onFilterChanged = this.onFilterChanged.bind(this);
   }
 
   onGridReady(params) {
@@ -84,6 +85,15 @@ class AgGridInput extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onSelectionChanged',
         event: { selected: this.gridApi.getSelectedRows() },
+      });
+    }
+  }
+
+  onFilterChanged(event) {
+    if (this.props.events.onFilterChanged) {
+      this.props.methods.triggerEvent({
+        name: 'onFilterChanged',
+        event: { rows: event.api.rowModel.rowsToDisplay.map((row) => row.data) },
       });
     }
   }

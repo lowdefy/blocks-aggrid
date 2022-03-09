@@ -85,15 +85,12 @@ class AgGrid extends React.Component {
   }
 
   onFilterChanged(event) {
-    console.log('Started');
     if (this.props.events.onFilterChanged) {
       this.props.methods.triggerEvent({
         name: 'onFilterChanged',
         event: { rows: event.api.rowModel.rowsToDisplay.map((row) => row.data) },
-        // event: { rows: event.api.rowModel.rowsToDisplay },
       });
       console.log(event);
-      // console.log(event.api.rowModel.rowsToDisplay.map((row) => row.data));
     }
   }
 

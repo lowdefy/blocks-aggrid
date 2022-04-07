@@ -50,8 +50,9 @@ class AgGrid extends React.Component {
   onRowClick(event) {
     if (this.props.events.onRowClick) {
       this.props.methods.triggerEvent({
-        name: 'onRowClick',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        index: parseInt(event.node.id),
+        name: 'onRowClick',
         rowIndex: event.rowIndex,
       });
     }
@@ -62,11 +63,12 @@ class AgGrid extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onCellClick',
         event: {
-          row: event.data,
           cell: { column: event.colDef.field, value: event.value },
-          selected: this.gridApi.getSelectedRows(),
-          rowIndex: event.rowIndex,
           colId: event.column.colId,
+          index: parseInt(event.node.id),
+          row: event.data,
+          rowIndex: event.rowIndex,
+          selected: this.gridApi.getSelectedRows(),
         },
       });
     }
@@ -75,8 +77,9 @@ class AgGrid extends React.Component {
   onRowSelected(event) {
     if (this.props.events.onRowSelected) {
       this.props.methods.triggerEvent({
-        name: 'onRowSelected',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        index: parseInt(event.node.id),
+        name: 'onRowSelected',
         rowIndex: event.rowIndex,
       });
     }

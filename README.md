@@ -31,21 +31,24 @@ The block types are hosted at:
 ##### All Blocks
 
 - `onCellClick`: Trigger event when a cell is clicked and pass the following to `_event`:
-  - `row: object`: Row data object.
   - `cell: object`: Cell data object.
-  - `selected: object[]`: List of selected row objects.
-  - `rowIndex: number`: List index of the clicked row.
   - `colId: string`: Column id of the clicked cell.
+  - `index: number`: Data index of the clicked row as per provided data array.
+  - `row: object`: Row data object.
+  - `rowIndex: number`: List index of the clicked row, changes with data sorting or filtering.
+  - `selected: object[]`: List of selected row objects.
 - `onFilterChanged`: Trigger event when the filter changes and pass the following to `_event`:
   - `rows: object[]`: List of row objects matched by the filter.
 - `onRowClick`: Trigger event when a row is clicked and pass the following to `_event`:
+  - `index: number`: Data index of the clicked row as per provided data array.
   - `row: object`: Row data object.
+  - `rowIndex: number`: List index of the clicked row, changes with data sorting or filtering.
   - `selected: object[]`: List of selected row objects.
-  - `rowIndex: number`: List index of the clicked row.
 - `onRowSelected`: Trigger event when a row is selected and pass the following to `_event`:
+  - `index: number`: Data index of the clicked row as per provided data array.
   - `row: object`: Row data object.
+  - `rowIndex: number`: List index of the clicked row, changes with data sorting or filtering.
   - `selected: object[]`: List of selected row objects.
-  - `rowIndex: number`: List index of the clicked row.
 - `onSelectionChanged`: Triggered when the selected rows is changed and pass the following to `_event`:
   - `selected: object[]`: List of selected row objects.
 
@@ -53,11 +56,12 @@ The block types are hosted at:
 
 - `onCellValueChanged`: Triggered when a cell value is changed on the grid. The following is passed to the action `_event`:
   - `field: string`: The field name of the changed cell.
+  - `index: number`: Data index of the clicked row as per provided data array.
   - `newRowData: object[]`: The table data with the change applied.
   - `newValue: any`: The updated cell value.
   - `oldValue: any`: The cell value before the update was made.
   - `rowData: object`: The row data after the cell value has been changed.
-  - `rowIndex: number`: Array index of the row for the changed cell.
+  - `rowIndex: number`: List index of the clicked row, changes with data sorting or filtering.
 - `onRowDragEnd`: Triggered when a row is dragged to another position in the grid. The following is passed to the action `_event`:
   - `fromData: object`: Row data of the row selection which to moved.
   - `fromIndex: number`: Array index of the row selection which to moved.

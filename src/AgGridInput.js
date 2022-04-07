@@ -57,6 +57,7 @@ class AgGridInput extends React.Component {
           row: event.data,
           selected: this.gridApi.getSelectedRows(),
           rowIndex: event.rowIndex,
+          index: parseInt(event.node.id),
         },
       });
     }
@@ -67,21 +68,24 @@ class AgGridInput extends React.Component {
       this.props.methods.triggerEvent({
         name: 'onCellClick',
         event: {
-          row: event.data,
           cell: { column: event.colDef.field, value: event.value },
-          selected: this.gridApi.getSelectedRows(),
-          rowIndex: event.rowIndex,
           colId: event.column.colId,
+          index: parseInt(event.node.id),
+          row: event.data,
+          rowIndex: event.rowIndex,
+          selected: this.gridApi.getSelectedRows(),
         },
       });
     }
   }
 
   onRowSelected(event) {
+    if (!event.node.selected) return; // see https://stackoverflow.com/a/63265775/2453657
     if (this.props.events.onRowSelected) {
       this.props.methods.triggerEvent({
-        name: 'onRowSelected',
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
+        index: parseInt(event.node.id),
+        name: 'onRowSelected',
         rowIndex: event.rowIndex,
       });
     }
@@ -138,12 +142,13 @@ class AgGridInput extends React.Component {
     this.props.methods.triggerEvent({
       name: 'onCellValueChanged',
       event: {
-        rowIndex: parseInt(params.node.id),
-        rowData: params.data,
         field: params.colDef.field,
+        index: parseInt(params.node.id),
+        newRowData,
         newValue: params.newValue,
         oldValue: params.oldValue,
-        newRowData,
+        rowData: params.data,
+        rowIndex: params.rowIndex,
       },
     });
   }

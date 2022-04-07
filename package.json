@@ -1,13 +1,13 @@
 {
   "name": "@lowdefy/blocks-aggrid",
-  "version": "3.12.3",
+  "version": "3.23.3",
   "license": "MIT",
   "description": "Lowdefy blocks for AgGrid.",
   "homepage": "https://lowdefy.com",
   "keywords": [
     "lowdefy",
     "lowdefy blocks",
-    "aggrid",
+    "ag-grid",
     "react component"
   ],
   "bugs": {
@@ -37,19 +37,14 @@
   ],
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "clean": "rm -rf dist",
-    "npm-publish": "npm publish --access public",
     "prepare": "yarn build",
-    "prepublishOnly": "yarn build",
-    "start:dev": "webpack serve --config webpack.dev.js",
-    "start": "webpack serve --config webpack.demo.js",
-    "test": "jest --coverage --config jest.config.js --no-cache"
+    "start": "webpack serve --config webpack.dev.js"
   },
   "dependencies": {
-    "@ag-grid-community/all-modules": "25.1.0",
-    "@ag-grid-community/core": "25.1.0",
-    "@ag-grid-community/react": "25.1.0",
-    "@lowdefy/block-tools": "^3.12.3",
+    "@ag-grid-community/all-modules": "27.1.0",
+    "@ag-grid-community/core": "27.1.0",
+    "@ag-grid-community/react": "27.1.0",
+    "@lowdefy/block-tools": "^3.22.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
@@ -58,33 +53,17 @@
     "@babel/core": "7.12.16",
     "@babel/preset-env": "7.12.16",
     "@babel/preset-react": "7.12.13",
-    "@lowdefy/helpers": "^3.12.3",
-    "babel-jest": "26.6.3",
     "babel-loader": "8.2.2",
     "buffer": "6.0.3",
     "clean-webpack-plugin": "3.0.0",
     "copy-webpack-plugin": "7.0.0",
     "css-loader": "5.0.2",
-    "eslint": "7.18.0",
-    "eslint-config-prettier": "7.2.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "3.3.1",
-    "eslint-plugin-react": "7.22.0",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "html-webpack-plugin": "5.1.0",
-    "identity-obj-proxy": "3.0.0",
-    "jest": "26.6.3",
-    "js-yaml": "4.0.0",
     "prettier": "2.2.1",
-    "react-markdown": "5.0.3",
-    "react-syntax-highlighter": "15.4.3",
     "style-loader": "2.0.0",
-    "webpack": "5.22.0",
-    "webpack-cli": "4.5.0",
+    "webpack": "5.38.1",
+    "webpack-cli": "4.9.0",
     "webpack-dev-server": "3.11.2",
-    "webpack-merge": "5.7.3",
-    "yaml-jest": "1.0.5",
-    "yaml-loader": "0.6.0"
-  }
+    "webpack-merge": "5.7.3"
+  },
+  "packageManager": "yarn@3.2.0"
 }

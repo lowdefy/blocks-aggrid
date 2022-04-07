@@ -11,8 +11,8 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/tests/__mocks__/styleMock.js',
   },
   transform: {
-    '\\.yaml$': 'yaml-jest',
     '\\.js?$': 'babel-jest',
+    '\\.yaml$': 'jest-transform-yaml',
   },
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', 'yaml', 'css'],
 };

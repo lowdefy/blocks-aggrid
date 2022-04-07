@@ -72,6 +72,10 @@ The block types are hosted at:
 ### Methods
 
 - `exportDataAsCsv`: When called, table data will be downloaded in csv format.
+- `sizeColumnsToFit`: When called, size table column widths to fit all columns to table width.
+- `autoSize`: When called, auto size columns. The following can be passed as the first argument of `args`.
+      - `skipHeader: boolean`: Do not consider header content width when auto-sizing columns.
+      - `columnIds: string[]`: List of `colId`s for which to calculate auto-size when called.
 
 ### AgGridAlpine Example
 

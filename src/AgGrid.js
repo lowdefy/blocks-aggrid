@@ -32,6 +32,13 @@ class AgGrid extends React.Component {
     this.onFilterChanged = this.onFilterChanged.bind(this);
   }
 
+  // see https://stackoverflow.com/questions/55182118/ag-grid-resize-detail-height-when-data-changes
+  componentDidUpdate() {
+    if (this.gridApi) {
+      this.gridApi.resetRowHeights();
+    }
+  }
+
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;

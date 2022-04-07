@@ -36,6 +36,8 @@ The block types are hosted at:
   - `selected: object[]`: List of selected row objects.
   - `rowIndex: number`: List index of the clicked row.
   - `colId: string`: Column id of the clicked cell.
+- `onFilterChanged`: Trigger event when the filter changes and pass the following to `_event`:
+  - `rows: object[]`: List of row objects matched by the filter.
 - `onRowClick`: Trigger event when a row is clicked and pass the following to `_event`:
   - `row: object`: Row data object.
   - `selected: object[]`: List of selected row objects.

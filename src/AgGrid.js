@@ -29,6 +29,7 @@ class AgGrid extends React.Component {
     this.onCellClicked = this.onCellClicked.bind(this);
     this.onRowSelected = this.onRowSelected.bind(this);
     this.onSelectionChanged = this.onSelectionChanged.bind(this);
+    this.onFilterChanged = this.onFilterChanged.bind(this);
   }
 
   onGridReady(params) {
@@ -83,6 +84,16 @@ class AgGrid extends React.Component {
     }
   }
 
+  onFilterChanged(event) {
+    if (this.props.events.onFilterChanged) {
+      this.props.methods.triggerEvent({
+        name: 'onFilterChanged',
+        event: { rows: event.api.rowModel.rowsToDisplay.map((row) => row.data) },
+      });
+      console.log(event);
+    }
+  }
+
   render() {
     const { quickFilterValue, ...someProperties } = this.props.properties;
     if (quickFilterValue && quickFilterValue === '') {
@@ -90,6 +101,7 @@ class AgGrid extends React.Component {
     }
     return (
       <AgGridReact
+        onFilterChanged={this.onFilterChanged}
         onSelectionChanged={this.onSelectionChanged}
         onRowSelected={this.onRowSelected}
         onRowClicked={this.onRowClick}

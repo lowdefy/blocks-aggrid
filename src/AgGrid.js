@@ -45,6 +45,16 @@ class AgGrid extends React.Component {
     this.props.methods.registerMethod('exportDataAsCsv', (args) =>
       this.gridApi.exportDataAsCsv(args)
     );
+    this.props.methods.registerMethod('sizeColumnsToFit', () => this.gridApi.sizeColumnsToFit());
+    this.props.methods.registerMethod('autoSize', ({ skipHeader, colIds }) => {
+      const allColumnIds = colIds || [];
+      if (!colIds) {
+        this.gridColumnApi.getAllColumns().forEach((column) => {
+          allColumnIds.push(column.getId());
+        });
+      }
+      this.gridColumnApi.autoSizeColumns(allColumnIds, skipHeader);
+    });
   }
 
   onRowClick(event) {

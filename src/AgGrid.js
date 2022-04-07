@@ -75,6 +75,7 @@ class AgGrid extends React.Component {
   }
 
   onRowSelected(event) {
+    if (!event.node.selected) return; // see https://stackoverflow.com/a/63265775/2453657
     if (this.props.events.onRowSelected) {
       this.props.methods.triggerEvent({
         event: { row: event.data, selected: this.gridApi.getSelectedRows() },
@@ -100,7 +101,6 @@ class AgGrid extends React.Component {
         name: 'onFilterChanged',
         event: { rows: event.api.rowModel.rowsToDisplay.map((row) => row.data) },
       });
-      console.log(event);
     }
   }
 

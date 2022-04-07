@@ -32,7 +32,6 @@ class AgGridInput extends React.Component {
     this.onRowDragEnd = this.onRowDragEnd.bind(this);
     this.onCellValueChanged = this.onCellValueChanged.bind(this);
     this.onFilterChanged = this.onFilterChanged.bind(this);
-    this.postSort = this.postSort.bind(this);
   }
 
   // see https://stackoverflow.com/questions/55182118/ag-grid-resize-detail-height-when-data-changes
@@ -134,12 +133,12 @@ class AgGridInput extends React.Component {
 
   onCellValueChanged(params) {
     const newRowData = this.props.value;
-    newRowData[params.rowIndex][params.colDef.field] = params.newValue;
+    newRowData[parseInt(params.node.id)][params.colDef.field] = params.newValue;
     this.props.methods.setValue(newRowData);
     this.props.methods.triggerEvent({
       name: 'onCellValueChanged',
       event: {
-        rowIndex: params.rowIndex,
+        rowIndex: parseInt(params.node.id),
         rowData: params.data,
         field: params.colDef.field,
         newValue: params.newValue,

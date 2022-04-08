@@ -41,9 +41,9 @@
     "start": "webpack serve --config webpack.dev.js"
   },
   "dependencies": {
-    "@ag-grid-community/all-modules": "27.1.0",
-    "@ag-grid-community/core": "27.1.0",
-    "@ag-grid-community/react": "27.1.0",
+    "@ag-grid-community/all-modules": "26.2.1",
+    "@ag-grid-community/core": "26.2.1",
+    "@ag-grid-community/react": "26.2.0",
     "@lowdefy/block-tools": "^3.22.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"

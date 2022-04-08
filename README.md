@@ -76,6 +76,7 @@ The block types are hosted at:
 - `autoSize`: When called, auto size columns. The following can be passed as the first argument of `args`.
       - `skipHeader: boolean`: Do not consider header content width when auto-sizing columns.
       - `columnIds: string[]`: List of `colId`s for which to calculate auto-size when called.
+- `setFilterModel`: When called, apply filter model to table. See https://www.ag-grid.com/javascript-data-grid/filter-api/ for model details.
 
 ### AgGridAlpine Example
 

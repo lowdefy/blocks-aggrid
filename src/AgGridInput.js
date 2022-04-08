@@ -48,7 +48,11 @@ class AgGridInput extends React.Component {
       this.gridApi.exportDataAsCsv(args)
     );
     this.props.methods.registerMethod('sizeColumnsToFit', () => this.gridApi.sizeColumnsToFit());
-    this.props.methods.registerMethod('autoSize', ({ skipHeader, colIds }) => {
+    this.props.methods.registerMethod('setFilterModel', (model) =>
+      this.gridApi.setFilterModel(model)
+    );
+    this.props.methods.registerMethod('autoSize', (args = {}) => {
+      const { skipHeader, colIds } = args;
       const allColumnIds = colIds || [];
       if (!colIds) {
         this.gridColumnApi.getAllColumns().forEach((column) => {
